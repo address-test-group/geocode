@@ -53,9 +53,9 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'project.urls'
 
-GEOCODE_GOOGLE_API_KEY = 'AIzaSyC2xkjidXO_m2qfAXLey1xUlOdXFs3Kgig'
+GEOCODE_GOOGLE_API_KEY = ''
 
-ELEVATION_GOOGLE_API_KEY = 'AIzaSyBCQhLyh6QuFQ8s4atlthsX7PXwZWOkV84'
+ELEVATION_GOOGLE_API_KEY = ''
 
 TEMPLATES = [
     {
@@ -82,10 +82,10 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'geocodetest',
-        'USER': 'geocodeuser',
-        'PASSWORD': '1234',
-        'HOST': 'localhost',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
         'PORT': '',
     }
 }

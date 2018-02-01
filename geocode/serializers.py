@@ -1,5 +1,6 @@
 from models import Geoposition
 from rest_framework.serializers import ModelSerializer, ValidationError
+from django.conf import settings
 import requests
 
 class GeopositionSerializer(ModelSerializer):
@@ -10,7 +11,7 @@ class GeopositionSerializer(ModelSerializer):
     def create(self, data):
         raw_address = data['address']
         #do stuff to set the address and stuff
-        rawResult = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+raw_address+'&key=AIzaSyC2xkjidXO_m2qfAXLey1xUlOdXFs3Kgig')
+        rawResult = requests.get('https://maps.googleapis.com/maps/api/geocode/json?address='+raw_address+'&key=' + settings.GEOCODE_GOOGLE_API_KEY)
         result = rawResult.json()
         if result['status'] == 'OK':
             current_result = result['results'][0]
@@ -18,7 +19,7 @@ class GeopositionSerializer(ModelSerializer):
             lng = current_result['geometry']['location']['lng']
             address = current_result['formatted_address']
 
-            rawResult = requests.get('https://maps.googleapis.com/maps/api/elevation/json?locations=' + str(lat) + ',' + str(lng) + '&key=AIzaSyBCQhLyh6QuFQ8s4atlthsX7PXwZWOkV84')
+            rawResult = requests.get('https://maps.googleapis.com/maps/api/elevation/json?locations=' + str(lat) + ',' + str(lng) + '&key=' + settings.ELEVATION_GOOGLE_API_KEY)
             elevation = rawResult.json()['results'][0]['elevation']
             geo = Geoposition(
                 address = address,
