@@ -25,7 +25,7 @@ SECRET_KEY = 't2)tfx-mbgbu(#rh-%vybq-$m!oo5iqqdft$p5kcz0#6_gna9e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['geocode-demo.herokuapp.com]
+ALLOWED_HOSTS = ['geocode-demo.herokuapp.com']
 
 
 # Application definition
